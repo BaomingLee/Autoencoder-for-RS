@@ -12,10 +12,10 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 
 
-tf.app.flags.DEFINE_string('tf_records_train_path', os.path.abspath(os.path.join(os.path.dirname("__file__"), '..', 'data/tf_records/train/')),
+tf.app.flags.DEFINE_string('tf_records_train_path', os.path.abspath(os.path.join(os.path.dirname("__file__"), '..', 'data/tf_records/train')),
                            'Path of the training data.')
 
-tf.app.flags.DEFINE_string('tf_records_test_path', os.path.abspath(os.path.join(os.path.dirname("__file__"), '..', 'data/tf_records/test/')),
+tf.app.flags.DEFINE_string('tf_records_test_path', os.path.abspath(os.path.join(os.path.dirname("__file__"), '..', 'data/tf_records/test')),
                            'Path of the test data.')
 
 tf.app.flags.DEFINE_string('checkpoints_path', os.path.abspath(os.path.join(os.path.dirname( "__file__ "), '..', 'checkpoints/model.ckpt')), 
