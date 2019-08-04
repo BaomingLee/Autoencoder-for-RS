@@ -9,7 +9,6 @@ from model.train_model import TrainModel
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 
-/content/Autoencoder-for-RS/Deep-Autoencoders-For-Collaborative-Filtering/data/tf_records/train
 
 
 
