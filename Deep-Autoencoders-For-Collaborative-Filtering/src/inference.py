@@ -5,10 +5,10 @@ import os
 from model.inference_model import InferenceModel
 
 
-tf.app.flags.DEFINE_string('checkpoints_path', os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'checkpoints/')), 
+tf.app.flags.DEFINE_string('checkpoints_path', os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'checkpoints/')), 
                            'Path for the test data.')
 
-tf.app.flags.DEFINE_string('export_path_base', os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'model-export/')), 
+tf.app.flags.DEFINE_string('export_path_base', os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'model-export/')), 
                            'Directory where to export the model.')
 
 tf.app.flags.DEFINE_integer('model_version', 1, 'Version number of the model.')
