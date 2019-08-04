@@ -12,7 +12,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 
 
-print("PATH:     "os.path.abspath(os.path.join(os.path.dirname("__file__"), '..', 'data/tf_records/train/')))
+print(os.path.abspath(os.path.join(os.path.dirname("__file__"), '..', 'data/tf_records/train/')))
 
 
 
