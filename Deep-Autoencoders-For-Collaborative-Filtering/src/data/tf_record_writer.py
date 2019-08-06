@@ -51,7 +51,7 @@ def main():
     
     training_set, test_set=get_dataset_1M()
 
-    for data_set, name, dir_ in zip([training_set, test_set], ['train', 'test'], [TF_RECORD_TRAIN_PATH, TF_RECORD_TEST_PATH]):
+    for data_set, name, dir_ in zip([training_set, test_set], ['u1.base', 'u1.test'], [TF_RECORD_TRAIN_PATH, TF_RECORD_TEST_PATH]):
         
         num_samples=len(data_set)
         i = 0
