@@ -29,19 +29,19 @@ tf.app.flags.DEFINE_integer('batch_size', 16,
 tf.app.flags.DEFINE_float('learning_rate',0.0005,
                           'Learning_Rate')
 
-tf.app.flags.DEFINE_boolean('l2_reg', True,
+tf.app.flags.DEFINE_boolean('l2_reg', False,
                             'L2 regularization.'
                             )
 tf.app.flags.DEFINE_float('lambda_',0.01,
                           'Wight decay factor.')
 
-tf.app.flags.DEFINE_integer('num_v', 3695,
+tf.app.flags.DEFINE_integer('num_v', 3952,
                             'Number of visible neurons (Number of movies the users rated.)')
 
 tf.app.flags.DEFINE_integer('num_h', 128,
                             'Number of hidden neurons.)')
 
-tf.app.flags.DEFINE_integer('num_samples', 5954,
+tf.app.flags.DEFINE_integer('num_samples', 5953,
                             'Number of training samples (Number of users, who gave a rating).')
 
 FLAGS = tf.app.flags.FLAGS

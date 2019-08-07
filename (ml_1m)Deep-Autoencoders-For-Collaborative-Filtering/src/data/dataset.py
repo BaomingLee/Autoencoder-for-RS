@@ -45,7 +45,7 @@ def _get_test_data(FLAGS):
 def parse(serialized):
     ''' Parser fot the TFRecords file.'''
     
-    features={'movie_ratings':tf.FixedLenFeature([3695], tf.float32),  
+    features={'movie_ratings':tf.FixedLenFeature([3952], tf.float32),  
               }
     parsed_example=tf.parse_single_example(serialized,
                                            features=features,

@@ -13,7 +13,7 @@ tf.app.flags.DEFINE_string('export_path_base', os.path.abspath(os.path.join(os.p
 
 tf.app.flags.DEFINE_integer('model_version', 1, 'Version number of the model.')
 
-tf.app.flags.DEFINE_integer('num_v', 3695,
+tf.app.flags.DEFINE_integer('num_v', 3952,
                             'Number of visible neurons (Number of movies the users rated.)')
 
 FLAGS = tf.app.flags.FLAGS
@@ -26,7 +26,7 @@ def run_inference():
         
         model=InferenceModel(FLAGS)
 
-        input_data=tf.placeholder(tf.float32, shape=[None, 3695])
+        input_data=tf.placeholder(tf.float32, shape=[None, 3952])
         ratings=model.inference(input_data)
         
         saver = tf.train.Saver()
