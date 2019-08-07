@@ -48,7 +48,29 @@ def get_dataset_1M():
     test_set=convert(test_set,num_users, num_movies)
     
     return training_set, test_set
+
+
     
+def get_dataset_100k():
+    ''' For each train.dat and test.dat making a User-Movie-Matrix'''
+    
+    gc.enable()
+    
+    training_set=pd.read_csv(ROOT_DIR+'/ml-1m/train.dat', sep='::', header=None, engine='python', encoding='latin-1')
+    training_set=np.array(training_set, dtype=np.uint32)
+    
+    test_set=pd.read_csv(ROOT_DIR+'/ml-1m/test.dat', sep='::', header=None, engine='python', encoding='latin-1')
+    test_set=np.array(test_set, dtype=np.uint32)
+    
+      
+    num_users=int(max(max(training_set[:,0]), max(test_set[:,0])))
+    num_movies=int(max(max(training_set[:,1]), max(test_set[:,1])))
+
+    training_set=convert(training_set,num_users, num_movies)
+    test_set=convert(test_set,num_users, num_movies)
+    
+    return training_set, test_set
+
 
 
 def _get_dataset():

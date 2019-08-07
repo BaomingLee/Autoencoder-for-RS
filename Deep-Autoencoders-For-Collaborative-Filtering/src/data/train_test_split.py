@@ -28,7 +28,6 @@ def count_rating_per_user():
 
     return rating_per_user
             
-
   
 def train_test_split():
     
