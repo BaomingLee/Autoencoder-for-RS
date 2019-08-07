@@ -56,10 +56,10 @@ def get_dataset_100k():
     
     gc.enable()
     
-    training_set=pd.read_csv(ROOT_DIR+'/ml-1m/train.dat', sep='::', header=None, engine='python', encoding='latin-1')
+    training_set=pd.read_csv(ROOT_DIR+'/ml-100k/u1.base', header=None,  delimiter='\t')
     training_set=np.array(training_set, dtype=np.uint32)
     
-    test_set=pd.read_csv(ROOT_DIR+'/ml-1m/test.dat', sep='::', header=None, engine='python', encoding='latin-1')
+    test_set=pd.read_csv(ROOT_DIR+'/ml-100k/u1.test', header=None,  delimiter='\t')
     test_set=np.array(test_set, dtype=np.uint32)
     
       
