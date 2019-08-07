@@ -26,7 +26,7 @@ def run_inference():
         
         model=InferenceModel(FLAGS)
 
-        input_data=tf.placeholder(tf.float32, shape=[None, 3952])
+        input_data=tf.placeholder(tf.float32, shape=[None, 3695])
         ratings=model.inference(input_data)
         
         saver = tf.train.Saver()
