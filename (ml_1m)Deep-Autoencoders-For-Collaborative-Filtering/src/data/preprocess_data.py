@@ -76,7 +76,11 @@ def get_dataset_100k():
     return training_set, test_set
 
 
+def get_dataset(kind):
 
-def _get_dataset():
-
-    return get_dataset_1M()
+    if kind=='1M':
+        training_set, test_set=get_dataset_1M()
+    elif kind=='100k':
+        training_set, test_set=get_dataset_100k()
+    
+    return training_set, test_set

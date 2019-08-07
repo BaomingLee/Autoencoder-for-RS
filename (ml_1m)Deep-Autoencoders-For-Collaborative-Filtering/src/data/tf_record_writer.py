@@ -1,8 +1,7 @@
 import numpy as np
 import tensorflow as tf
 import sys
-from preprocess_data import get_dataset_1M
-from preprocess_data import get_dataset_100k
+from preprocess_data import get_dataset
 import os
 from pathlib import Path
 
@@ -50,7 +49,7 @@ def main():
 
     SAMPLES_PER_FILES=100
     
-    training_set, test_set = get_dataset_1M()
+    training_set, test_set = get_dataset('1M')
 
     for data_set, name, dir_ in zip([training_set, test_set], ['train', 'test'], [TF_RECORD_TRAIN_PATH, TF_RECORD_TEST_PATH]):
         
