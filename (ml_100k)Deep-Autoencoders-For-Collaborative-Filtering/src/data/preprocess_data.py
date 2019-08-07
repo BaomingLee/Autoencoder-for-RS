@@ -64,6 +64,9 @@ def get_dataset_100k():
 
     training_set=convert(training_set,num_users, num_movies)
     test_set=convert(test_set,num_users, num_movies)
+
+    print(num_users)
+    print(num_movies)
     
     return training_set, test_set
 
