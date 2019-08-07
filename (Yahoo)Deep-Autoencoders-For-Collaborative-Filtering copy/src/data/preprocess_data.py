@@ -36,10 +36,10 @@ def get_dataset_Yahoo():
     
     gc.enable()
     
-    training_set=pd.read_csv(ROOT_DIR+'/Yahoo_Music/training_set_small.csv')
+    training_set=pd.read_csv(ROOT_DIR+'/Yahoo_Music/training_smallest.csv')
     training_set=np.array(training_set)
     
-    test_set=pd.read_csv(ROOT_DIR+'/Yahoo_Music/test_set_small.csv')
+    test_set=pd.read_csv(ROOT_DIR+'/Yahoo_Music/test_smallest.csv')
     test_set=np.array(test_set)
     
       
