@@ -49,6 +49,7 @@ def train_test_split():
             continue
         
         try:
+            write_test_samples = False
             if user_nr==next_user:
                 write_test_samples=True
                 next_user+=1
