@@ -12,14 +12,14 @@ def convert(data, num_users, num_movies):
     ''' Making a User-Movie-Matrix'''
     
     new_data=[]
-    
+   
     for id_user in range(1, num_users+1):
         
         #userid  songid  rating
 
         id_movie=data[:,1][data[:,0]==id_user]
         id_rating=data[:,2][data[:,0]==id_user]
-        ratings=np.zeros(num_movies)
+        ratings=np.zeros(num_movies, dtype=np.uint32)
         ratings[id_movie-1]=id_rating
         if sum(ratings)==0:
             continue
@@ -36,11 +36,13 @@ def get_dataset_Yahoo():
     
     gc.enable()
     
-    training_set=pd.read_csv(ROOT_DIR+'/Yahoo_Music/training_smallest.csv')
-    training_set=np.array(training_set)
+    training_set=pd.read_csv(ROOT_DIR+'/Yahoo_Music/training_smallest.txt', sep=' ', header = None)
+    training_set=np.array(training_set, dtype=np.uint32)
     
-    test_set=pd.read_csv(ROOT_DIR+'/Yahoo_Music/test_smallest.csv')
-    test_set=np.array(test_set)
+    print(training_set[0])
+
+    test_set=pd.read_csv(ROOT_DIR+'/Yahoo_Music/test_smallest.txt', sep=' ', header = None)
+    test_set=np.array(test_set, dtype=np.uint32)
     
       
     num_users=int(max(max(training_set[:,0]), max(test_set[:,0])))
