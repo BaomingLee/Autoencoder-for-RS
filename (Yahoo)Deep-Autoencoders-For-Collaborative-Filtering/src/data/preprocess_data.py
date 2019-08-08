@@ -36,15 +36,19 @@ def get_dataset_Yahoo():
     
     gc.enable()
     
-    training_set=pd.read_csv(ROOT_DIR+'/Yahoo_Music/training_smallest.txt', sep=' ', header = None)
+    training_set=pd.read_csv(ROOT_DIR+'/Yahoo_Music/training_smallest_1.txt', sep=' ', header = None)
     training_set=np.array(training_set, dtype=np.uint32)
-    
-    print(training_set[0])
 
-    test_set=pd.read_csv(ROOT_DIR+'/Yahoo_Music/test_smallest.txt', sep=' ', header = None)
+    test_set=pd.read_csv(ROOT_DIR+'/Yahoo_Music/test_smallest_1.txt', sep=' ', header = None)
     test_set=np.array(test_set, dtype=np.uint32)
     
-      
+    print(training_set[:,:])
+    print(test_set[:,:])
+
+    print(len(training_set))
+    print(len(test_set))
+
+
     num_users=int(max(max(training_set[:,0]), max(test_set[:,0])))
     num_movies=int(max(max(training_set[:,1]), max(test_set[:,1])))
 

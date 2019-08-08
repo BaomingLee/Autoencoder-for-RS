@@ -58,7 +58,12 @@ def get_dataset_100k():
     
     test_set=pd.read_csv(ROOT_DIR+'/ml-100k/ua.test', delimiter='\t')
     test_set=np.array(test_set, dtype=np.uint32)
-      
+    
+    print(training_set[:,:])
+    print(test_set[:,:])
+    print(len(training_set))
+    print(len(test_set))
+
     num_users=int(max(max(training_set[:,0]), max(test_set[:,0])))
     num_movies=int(max(max(training_set[:,1]), max(test_set[:,1])))
 
