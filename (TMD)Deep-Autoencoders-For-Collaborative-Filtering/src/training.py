@@ -10,7 +10,6 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 
 
-
 tf.app.flags.DEFINE_string('tf_records_train_path', os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data/tf_records/train/')),
                            'Path of the training data.')
 
