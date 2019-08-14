@@ -8,8 +8,8 @@ OUTPUT_DIR_TRAIN=os.path.abspath(os.path.join(p, '..', 'data/raw/train.txt'))
 OUTPUT_DIR_TEST=os.path.abspath(os.path.join(p, '..', 'data/raw/test.txt'))
 ROOT_DIR=os.path.abspath(os.path.join(p, '..', 'data/raw/ratings_small.txt'))
 
-NUM_USERS=6040
-NUM_TEST_RATINGS=10
+NUM_USERS = 671
+NUM_TEST_RATINGS=3
 
 
 def count_rating_per_user():
