@@ -29,7 +29,7 @@ tf.app.flags.DEFINE_integer('batch_size', 16,
 tf.app.flags.DEFINE_float('learning_rate',0.0005,
                           'Learning_Rate')
 
-tf.app.flags.DEFINE_boolean('l2_reg', True,
+tf.app.flags.DEFINE_boolean('l2_reg', False,
                             'L2 regularization.'
                             )
 tf.app.flags.DEFINE_float('lambda_',0.01,
