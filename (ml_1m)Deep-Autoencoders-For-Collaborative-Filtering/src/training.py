@@ -20,7 +20,7 @@ tf.app.flags.DEFINE_string('tf_records_test_path', os.path.abspath(os.path.join(
 tf.app.flags.DEFINE_string('checkpoints_path', os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'checkpoints/model.ckpt')), 
                            'Path for the test data.')
 
-tf.app.flags.DEFINE_integer('num_epoch', 20,
+tf.app.flags.DEFINE_integer('num_epoch', 50,
                             'Number of training epochs.')
 
 tf.app.flags.DEFINE_integer('batch_size', 16,
@@ -29,7 +29,7 @@ tf.app.flags.DEFINE_integer('batch_size', 16,
 tf.app.flags.DEFINE_float('learning_rate',0.0005,
                           'Learning_Rate')
 
-tf.app.flags.DEFINE_boolean('l2_reg', True,
+tf.app.flags.DEFINE_boolean('l2_reg', False,
                             'L2 regularization.'
                             )
 tf.app.flags.DEFINE_float('lambda_',0.01,
