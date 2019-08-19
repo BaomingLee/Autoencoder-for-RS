@@ -23,7 +23,7 @@ tf.app.flags.DEFINE_string('checkpoints_path', os.path.abspath(os.path.join(os.p
 tf.app.flags.DEFINE_integer('num_epoch', 20,
                             'Number of training epochs.')
 
-tf.app.flags.DEFINE_integer('batch_size', 16,
+tf.app.flags.DEFINE_integer('batch_size', 8,
                             'Size of the training batch.')
 
 tf.app.flags.DEFINE_float('learning_rate',0.0005,
