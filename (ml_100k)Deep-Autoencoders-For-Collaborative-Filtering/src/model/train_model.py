@@ -12,6 +12,7 @@ class TrainModel(BaseModel):
         
         
     def _compute_loss(self, predictions, labels,num_labels):
+        
         ''' Computing the Mean Squared Error loss between the input and output of the network.
     		
     	  @param predictions: predictions of the stacked autoencoder
@@ -25,40 +26,18 @@ class TrainModel(BaseModel):
             
             loss_op=tf.div(tf.reduce_sum(tf.square(tf.subtract(predictions,labels))),num_labels)
             return loss_op
-    
-    def _validation_loss(self, x_train, x_test):
-        
-        ''' Computing the loss during the validation time.
-    		
-    	  @param x_train: training data samples
-    	  @param x_test: test data samples
-    		
-    	  @return networks predictions
-    	  @return root mean squared error loss between the predicted and actual ratings
-    	  '''
-        
-        outputs=self.inference(x_train) # use training sample to make prediction
-        mask=tf.where(tf.equal(x_test,0.0), tf.zeros_like(x_test), x_test) # identify the zero values in the test ste
-        num_test_labels=tf.cast(tf.count_nonzero(mask),dtype=tf.float32) # count the number of non zero values
-        bool_mask=tf.cast(mask,dtype=tf.bool) 
-        outputs=tf.where(bool_mask, outputs, tf.zeros_like(outputs))
-    
-        MSE_loss=self._compute_loss(outputs, x_test, num_test_labels)
-        RMSE_loss=tf.sqrt(MSE_loss)
-        
-        ab_ops=tf.div(tf.reduce_sum(tf.abs(tf.subtract(x_test,outputs))),num_test_labels)
-            
-        return outputs, x_test, RMSE_loss, ab_ops
-    
+
+
     
     
     def train(self, x):
+
         '''Optimization of the network parameter through stochastic gradient descent.
             
-            @param x: input values for the stacked autoencoder.
-            
-            @return: tensorflow training operation
-            @return: ROOT!! mean squared error
+        @param x: input values for the stacked autoencoder.
+        
+        @return: tensorflow training operation
+        @return: root mean squared error
         '''
         
         outputs=self.inference(x)
@@ -77,3 +56,31 @@ class TrainModel(BaseModel):
         RMSE_loss=tf.sqrt(MSE_loss)
 
         return train_op, RMSE_loss
+
+
+
+
+    def _validation_loss(self, x_train, x_test):
+        
+        ''' Computing the loss during the validation time.
+    		
+    	  @param x_train: training data samples
+    	  @param x_test: test data samples
+    		
+    	  @return networks predictions
+    	  @return root mean squared error loss between the predicted and actual ratings
+    	  '''
+        
+        outputs=self.inference(x_train) # use training sample to make prediction
+        mask=tf.where(tf.equal(x_test,0.0), tf.zeros_like(x_test), x_test) # identify the zero values in the test set
+        num_test_labels=tf.cast(tf.count_nonzero(mask),dtype=tf.float32) # count the number of non zero values
+        bool_mask=tf.cast(mask,dtype=tf.bool) 
+        outputs=tf.where(bool_mask, outputs, tf.zeros_like(outputs))
+    
+        MSE_loss=self._compute_loss(outputs, x_test, num_test_labels)
+        RMSE_loss=tf.sqrt(MSE_loss)
+        
+        ab_ops=tf.div(tf.reduce_sum(tf.abs(tf.subtract(x_test,outputs))),num_test_labels)
+            
+        return outputs, x_test, RMSE_loss, ab_ops
+            

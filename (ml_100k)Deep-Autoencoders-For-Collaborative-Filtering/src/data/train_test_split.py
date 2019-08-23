@@ -9,10 +9,18 @@ OUTPUT_DIR_TEST=os.path.abspath(os.path.join(p, '..', 'data/raw/ml-1m/test.dat')
 ROOT_DIR=os.path.abspath(os.path.join(p, '..', 'data/raw/ml-1m/ratings.dat'))
 
 NUM_USERS=6040
+
+'''
+Each user 10 movie ratings for the testing.
+The rest (vast majority) were used for the training of the model.
+'''
+
 NUM_TEST_RATINGS=10
 
 
 def count_rating_per_user():
+
+    ''' count the number of ratings per user.'''
     
     rating_per_user={}
 

@@ -3,8 +3,9 @@ import os
 
 
 def _get_training_data(FLAGS):  
-    ''' Buildind the input pipeline for training and inference using TFRecords files.
-    @return data only for the training
+    ''' 
+    Buildind the input pipeline for training and inference using TFRecords files.
+    @return data for the training
     @return data for the inference
     '''
     
@@ -43,7 +44,7 @@ def _get_test_data(FLAGS):
 
 
 def parse(serialized):
-    ''' Parser fot the TFRecords file.'''
+    ''' Parser for the TFRecords file.'''
     
     features={'movie_ratings':tf.FixedLenFeature([1682], tf.float32),  
               }
