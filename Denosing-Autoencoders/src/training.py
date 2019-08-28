@@ -35,7 +35,7 @@ tf.app.flags.DEFINE_boolean('l2_reg', False,
 tf.app.flags.DEFINE_float('lambda_',0.01,
                           'Wight decay factor.')
 
-tf.app.flags.DEFINE_integer('num_v', 2964,
+tf.app.flags.DEFINE_integer('num_v', 3952,
                             'Number of visible neurons (Number of movies the users rated.)')
 
 tf.app.flags.DEFINE_integer('num_h', 128,
