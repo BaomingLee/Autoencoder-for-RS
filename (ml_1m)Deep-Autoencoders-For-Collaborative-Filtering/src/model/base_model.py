@@ -40,7 +40,7 @@ class BaseModel(object):
         #                             initializer=self.bias_initializer)
                             
 
-            with tf.name_scope('weights'):
+        with tf.name_scope('weights'):
             self.W_1=tf.get_variable(name='weight_1', shape=(self.FLAGS.num_v,256), 
                                      initializer=self.weight_initializer)
             self.W_2=tf.get_variable(name='weight_2', shape=(256,256), 
