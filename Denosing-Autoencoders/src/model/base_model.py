@@ -30,7 +30,7 @@ class BaseModel(object):
             self.b3=tf.get_variable(name='bias_3', shape=(256), 
                                     initializer=self.bias_initializer)
     
-    def inference(self, x, dropout=0.25):
+    def inference(self, x, dropout=0.5):
         ''' Making one forward pass. Predicting the networks outputs.
         @param x: input ratings
         
