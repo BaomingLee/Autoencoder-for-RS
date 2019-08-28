@@ -4,21 +4,29 @@ from pathlib import Path
 here = Path(__file__).resolve()
 p = here.parents[1]
 
-OUTPUT_DIR_TRAIN=os.path.abspath(os.path.join(p, '..', 'data/raw/Yahoo_Music/train.txt'))
-OUTPUT_DIR_TEST=os.path.abspath(os.path.join(p, '..', 'data/raw/Yahoo_Music/test.txt'))
-ROOT_DIR=os.path.abspath(os.path.join(p, '..', 'data/raw/Yahoo_Music/ratings.txt'))
+OUTPUT_DIR_TRAIN=os.path.abspath(os.path.join(p, '..', 'data/raw/ml-1m/train.dat'))
+OUTPUT_DIR_TEST=os.path.abspath(os.path.join(p, '..', 'data/raw/ml-1m/test.dat'))
+ROOT_DIR=os.path.abspath(os.path.join(p, '..', 'data/raw/ml-1m/ratings.dat'))
 
-NUM_USERS=10000
+NUM_USERS=6040
+
+'''
+Each user 10 movie ratings for the testing.
+The rest (vast majority) were used for the training of the model.
+'''
+
 NUM_TEST_RATINGS=10
 
 
 def count_rating_per_user():
+
+    ''' count the number of ratings per user.'''
     
     rating_per_user={}
 
     for line in open(ROOT_DIR):
         
-        line=line.split(' ')
+        line=line.split('::')
         user_nr=int(line[0])
         
         if user_nr in rating_per_user:
@@ -41,7 +49,7 @@ def train_test_split():
     
     for line in open(ROOT_DIR):
         
-        splitted_line=line.split(' ')
+        splitted_line=line.split('::')
         user_nr=int(splitted_line[0])
         
         if user_rating[user_nr]<=NUM_TEST_RATINGS*2:
@@ -49,7 +57,6 @@ def train_test_split():
             continue
         
         try:
-            write_test_samples = False
             if user_nr==next_user:
                 write_test_samples=True
                 next_user+=1

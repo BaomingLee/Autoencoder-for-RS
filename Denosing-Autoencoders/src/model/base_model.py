@@ -11,6 +11,15 @@ class BaseModel(object):
         self.FLAGS=FLAGS
     
     def _init_parameters(self):
+
+
+        '''
+        Initialize the weights and biaes.
+
+        @weights: normal distributed with a mean of 0.0 and a variance of 0.02, 
+        @biases: all set to 0.0 in the beginning.
+
+        '''
         
         with tf.name_scope('weights'):
             self.W_1=tf.get_variable(name='weight_1', shape=(self.FLAGS.num_v,256), 
@@ -31,14 +40,16 @@ class BaseModel(object):
                                     initializer=self.bias_initializer)
     
     def inference(self, x):
-        ''' Making one forward pass. Predicting the networks outputs.
+
+        '''
+        Making one forward pass. Predicting the networks outputs, 
+        given the inputs sample x (a row of the user-movie matrix).
+       
         @param x: input ratings
-        
         @return : networks predictions
         '''
-        
+
         with tf.name_scope('inference'):
-            #  x_dropout = tf.nn.dropout(x, dropout)
              a1=tf.nn.sigmoid(tf.nn.bias_add(tf.matmul(x, self.W_1),self.b1))
              a2=tf.nn.sigmoid(tf.nn.bias_add(tf.matmul(a1, self.W_2),self.b2))
              a3=tf.nn.sigmoid(tf.nn.bias_add(tf.matmul(a2, self.W_3),self.b3))   

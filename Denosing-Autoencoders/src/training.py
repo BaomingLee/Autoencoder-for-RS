@@ -1,9 +1,6 @@
 import numpy as np
 import tensorflow as tf
 import os
-
-
-
 from data.dataset import _get_training_data, _get_test_data
 from model.train_model import TrainModel
 from sklearn.metrics import mean_absolute_error, mean_squared_error
@@ -29,7 +26,7 @@ tf.app.flags.DEFINE_integer('batch_size', 16,
 tf.app.flags.DEFINE_float('learning_rate',0.0005,
                           'Learning_Rate')
 
-tf.app.flags.DEFINE_boolean('l2_reg', False,
+tf.app.flags.DEFINE_boolean('l2_reg', True,
                             'L2 regularization.'
                             )
 tf.app.flags.DEFINE_float('lambda_',0.01,
