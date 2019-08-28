@@ -40,7 +40,27 @@ class BaseModel(object):
             self.b3=tf.get_variable(name='bias_3', shape=(256), 
                                     initializer=self.bias_initializer)
     
-    def inference(self, x):
+    # def inference(self, x):
+
+    #     '''
+    #     Making one forward pass. Predicting the networks outputs, 
+    #     given the inputs sample x (a row of the user-movie matrix).
+       
+    #     @param x: input ratings
+    #     @return : networks predictions
+    #     '''
+        
+    #     with tf.name_scope('inference'):
+    #          a1=tf.nn.sigmoid(tf.nn.bias_add(tf.matmul(x, self.W_1),self.b1))
+    #          a2=tf.nn.sigmoid(tf.nn.bias_add(tf.matmul(a1, self.W_2),self.b2))
+    #          a3=tf.nn.sigmoid(tf.nn.bias_add(tf.matmul(a2, self.W_3),self.b3))   
+    #          a4=tf.matmul(a3, self.W_4) 
+    #     return a4
+
+
+
+
+    def inference(self, x, dropout=0.25):
 
         '''
         Making one forward pass. Predicting the networks outputs, 
@@ -49,9 +69,10 @@ class BaseModel(object):
         @param x: input ratings
         @return : networks predictions
         '''
-        
+
         with tf.name_scope('inference'):
-             a1=tf.nn.sigmoid(tf.nn.bias_add(tf.matmul(x, self.W_1),self.b1))
+             x_dropout = tf.nn.dropout(x, dropout)
+             a1=tf.nn.sigmoid(tf.nn.bias_add(tf.matmul(x_dropout, self.W_1),self.b1))
              a2=tf.nn.sigmoid(tf.nn.bias_add(tf.matmul(a1, self.W_2),self.b2))
              a3=tf.nn.sigmoid(tf.nn.bias_add(tf.matmul(a2, self.W_3),self.b3))   
              a4=tf.matmul(a3, self.W_4) 
