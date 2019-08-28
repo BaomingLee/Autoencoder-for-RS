@@ -44,17 +44,17 @@ class BaseModel(object):
             self.W_1=tf.get_variable(name='weight_1', shape=(self.FLAGS.num_v,256), 
                                      initializer=self.weight_initializer)
             self.W_2=tf.get_variable(name='weight_2', shape=(256,256), 
+                                     initializer=self.weight_initializer)
             self.W_3=tf.get_variable(name='weight_3', shape=(256,self.FLAGS.num_v), 
                                      initializer=self.weight_initializer)
-                                     
+        
         with tf.name_scope('biases'):
             self.b1=tf.get_variable(name='bias_1', shape=(256), 
                                     initializer=self.bias_initializer)
             self.b2=tf.get_variable(name='bias_2', shape=(256), 
                                     initializer=self.bias_initializer)
-       
-    
-    
+
+ 
     # def inference(self, x):
 
     #     '''
